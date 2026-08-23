@@ -45,7 +45,7 @@ export default function AdminLogin() {
             autoComplete="username"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mb-4 w-full border hairline bg-void px-3 py-2 text-sm text-bone focus:border-genesis focus:outline-none"
+            className="mb-4 w-full border hairline bg-void px-3 py-2 text-base text-bone focus:border-genesis focus:outline-none sm:text-sm"
           />
 
           <label className="mb-1 block font-mono text-[11px] uppercase tracking-widest2 text-steel">Password</label>
@@ -55,7 +55,7 @@ export default function AdminLogin() {
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mb-4 w-full border hairline bg-void px-3 py-2 text-sm text-bone focus:border-genesis focus:outline-none"
+            className="mb-4 w-full border hairline bg-void px-3 py-2 text-base text-bone focus:border-genesis focus:outline-none sm:text-sm"
           />
 
           {error && <p className="mb-4 text-sm text-genesis">{error}</p>}
