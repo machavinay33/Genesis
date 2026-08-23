@@ -4,6 +4,18 @@ import { formatUSD, formatDate } from '../lib/format'
 import SectionHeading from '../components/SectionHeading.jsx'
 import { LoadingBlock, ErrorBlock, EmptyBlock } from '../components/StateBlocks.jsx'
 
+const INSTAGRAM_URL = 'https://www.instagram.com/genesis_esports__?igsi=emp3dnh0ZGQ2cHMz'
+
+function InstagramIcon() {
+  return (
+    <svg aria-hidden="true" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
 function Field({ label, value }) {
   return (
     <div className="border-b hairline py-4 sm:flex sm:items-center sm:justify-between">
@@ -59,13 +71,17 @@ export default function Organization() {
           <Field
             label="Official social"
             value={
-              team?.instagram_url ? (
-                <a href={team.instagram_url} target="_blank" rel="noreferrer" className="text-genesis hover:text-genesis-glow">
-                  Instagram profile ↗
-                </a>
-              ) : (
-                'Instagram profile listed on team page'
-              )
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-genesis transition-colors hover:text-genesis-glow"
+                aria-label="Open Genesis Esports Instagram profile"
+              >
+                <InstagramIcon />
+                <span>@genesis_esports__</span>
+                <span aria-hidden="true">↗</span>
+              </a>
             }
           />
         </div>
