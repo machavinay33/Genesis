@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background: #FF6501;
+  color: #0B0B0D;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-void text-bone font-body antialiased;
+}
+
+*:focus-visible {
+  outline: 2px solid #FF6501;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Signature element: HUD target-lock corner brackets, used on portraits & key frames */
+.hud-frame {
+  position: relative;
+}
+.hud-frame::before,
+.hud-frame::after,
+.hud-frame > .hud-tl,
+.hud-frame > .hud-tr,
+.hud-frame > .hud-bl,
+.hud-frame > .hud-br {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: #FF6501;
+  border-style: solid;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+}
+.hud-frame::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+.hud-frame::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+.hud-frame > .hud-tr {
+  top: -1px;
+  right: -1px;
+  border-width: 2px 2px 0 0;
+}
+.hud-frame > .hud-bl {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 2px 2px;
+}
+.hud-frame:hover::before,
+.hud-frame:hover::after,
+.hud-frame:hover > .hud-tr,
+.hud-frame:hover > .hud-bl {
+  width: 22px;
+  height: 22px;
+}
+
+.eyebrow {
+  @apply font-mono text-[11px] uppercase tracking-widest2 text-genesis;
+}
+
+.stat-tick {
+  @apply font-mono tabular-nums;
+}
+
+.hairline {
+  border-color: rgba(255,255,255,0.09);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255,101,1,0.5);
+}
+
+/* subtle diagonal scan texture for panels */
+.scan-panel {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255,255,255,0.015) 0px,
+    rgba(255,255,255,0.015) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
