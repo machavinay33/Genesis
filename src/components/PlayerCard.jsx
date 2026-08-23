@@ -20,7 +20,7 @@ export default function PlayerCard({ player }) {
           <img
             src={player.photo_url}
             alt={player.full_name || player.ign}
-            className="h-full w-full object-cover grayscale transition-[filter,transform] duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-steel2">
