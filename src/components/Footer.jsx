@@ -37,7 +37,6 @@ export default function Footer() {
               <li>India · Asia region</li>
               <li>Founded 1 February 2023</li>
               <li>Games: PUBG Mobile / BGMI</li>
-              <li><Link className="hover:text-genesis" to="/admin/login">Admin sign in</Link></li>
             </ul>
           </div>
         </div>
