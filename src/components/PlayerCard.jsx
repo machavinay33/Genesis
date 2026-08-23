@@ -1,11 +1,18 @@
+import useScrollReveal from '../hooks/useScrollReveal.js'
+
 function formatDate(d) {
   if (!d) return '—'
   return new Date(d).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })
 }
 
 export default function PlayerCard({ player }) {
+  const { ref, isVisible } = useScrollReveal()
+
   return (
-    <div className="group border hairline bg-char/60 p-5 transition-colors hover:border-genesis/50">
+    <div
+      ref={ref}
+      className={`reveal-on-scroll group border hairline bg-char/60 p-5 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-genesis/50 hover:shadow-[0_14px_40px_rgba(255,101,1,0.08)] ${isVisible ? 'is-visible' : ''}`}
+    >
       <div className="hud-frame mx-auto aspect-square w-full max-w-[220px] overflow-hidden bg-char2">
         <span className="hud-tr" />
         <span className="hud-bl" />
@@ -13,7 +20,7 @@ export default function PlayerCard({ player }) {
           <img
             src={player.photo_url}
             alt={player.full_name || player.ign}
-            className="h-full w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+            className="h-full w-full object-cover grayscale transition-[filter,transform] duration-500 ease-out group-hover:scale-105 group-hover:grayscale-0"
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-steel2">

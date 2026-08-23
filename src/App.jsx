@@ -20,10 +20,13 @@ import ManageAwards from './pages/admin/ManageAwards.jsx'
 import ManageTimeline from './pages/admin/ManageTimeline.jsx'
 import ManageUpcoming from './pages/admin/ManageUpcoming.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 
 export default function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/roster" element={<Roster />} />
@@ -53,6 +56,7 @@ export default function App() {
         <Route path="timeline" element={<ManageTimeline />} />
         <Route path="upcoming" element={<ManageUpcoming />} />
       </Route>
-    </Routes>
+      </Routes>
+    </>
   )
 }
